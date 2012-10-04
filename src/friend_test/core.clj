@@ -6,7 +6,7 @@
                        [route :as route])
             [cheshire.core :as json]
             [ring.util.response :as resp]
-            [friend-test.views.login :as l])
+            [friend-test.views.main :as main])
   (:use [compojure.core :as compojure :only (GET ANY defroutes)]))
 
 (defn- json-response
@@ -36,9 +36,9 @@
 (defroutes my-ring-app
   (compojure/context "/user" request (friend/wrap-authorize user-routes #{::user}))
   (compojure/context "/admin" request (friend/wrap-authorize admin-routes #{::admin}))
-  (GET "/" [] "Landing page.")
+  (GET "/" [] (main/index))
   (GET "/hello" [] "<h1>Hello World</h1>")
-  (GET "/login" [] (l/login))
+  (GET "/login" [] (main/login))
   (friend/logout (ANY "/logout" request (ring.util.response/redirect "/")))
   (GET "/echo-roles" request (friend/authenticated
                               (-> (friend/current-authentication)
