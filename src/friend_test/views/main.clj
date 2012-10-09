@@ -54,6 +54,14 @@
       [:ul
        (for [[k v] current-auth]
          [:li (str k " " v)])])
-    (element/link-to "/login" "login")
-    [:br]
-    (element/link-to "/logout" "logout"))))
+   [:h2 "current session:"]
+   [:ul
+    (for [[k v] (:session request)]
+      [:li (str k " " v)])]
+   [:h2 "auth-config:"]
+   [:ul
+    (for [[k v] (:cemerick.friend/auth-config request)]
+      [:li (str k " " v)])]
+   (element/link-to "/login" "login")
+   [:br]
+   (element/link-to "/logout" "logout"))))
