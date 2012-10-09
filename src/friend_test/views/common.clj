@@ -1,5 +1,6 @@
 (ns friend-test.views.common
-  (:require [hiccup.page :as page]))
+  (:require [hiccup.page :as page]
+            [hiccup.element :as element]))
 
 (defn layout [title & content]
   (page/html5
