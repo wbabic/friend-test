@@ -2,7 +2,7 @@
   :description "take authentication using friend out for a spin"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [com.cemerick/friend "0.1.5"]
-                 [clj-http "0.7.3"]
+                 [cheshire "5.2.0"]
                  [compojure "1.1.5"]
                  [hiccup "1.0.3"]
                  [ring-mock "0.1.5"]]
